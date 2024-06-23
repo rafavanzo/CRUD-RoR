@@ -61,7 +61,14 @@ class PessoasController < ApplicationController
 
   # Use callbacks para compartilhar configurações ou restrições comuns entre ações.
   def set_pessoa
-    @pessoa = Pessoa.find(params[:id])
+    verify_pessoa_id unless @pessoa = Pessoa.find_by(id: params[:id])
+  end
+
+  def verify_pessoa_id
+    respond_to do |format|
+      format.html { redirect_to pessoas_url, alert: t('pessoas.messages.error.not_found') }
+      format.json { render json: { error: t('pessoas.messages.error.not_found') }, status: :not_found }
+    end
   end
 
   # Só permitir uma lista de parâmetros confiáveis por meio de strong parameters.

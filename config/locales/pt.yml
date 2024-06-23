@@ -45,6 +45,11 @@ pt:
         create: "Pessoa criada com sucesso."
         update: "Pessoa atualizada com sucesso."
         destroy: "Pessoa excluída com sucesso."
+      error:
+        create: "Erro ao criar pessoa."
+        update: "Erro ao atualizar pessoa."
+        destroy: "Erro ao excluir pessoa."
+        not_found: "Pessoa não encontrada."
     form:
       title: "Pessoa"
       nome: "Nome"
