@@ -7,15 +7,42 @@
 
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">Pessoas</h1>
-    <%= link_to "New pessoa", new_pessoa_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    <%= link_to t("pessoas.form.new"), new_pessoa_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
-  <div id="pessoas" class="min-w-full">
-    <% @pessoas.each do |pessoa| %>
-      <%= render pessoa %>
-      <p>
-        <%= link_to "Show this pessoa", pessoa, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-      </p>
-    <% end %>
-  </div>
+  <table class="min-w-full table-auto">
+    <thead>
+      <tr>
+        <th class="px-4 py-2"><%= t("activerecord.attributes.pessoa.nome") %></th>
+        <th class="px-4 py-2"><%= t("activerecord.attributes.pessoa.rua") %></th>
+        <th class="px-4 py-2"><%= t("activerecord.attributes.pessoa.numero") %></th>
+        <th class="px-4 py-2"><%= t("activerecord.attributes.pessoa.bairro") %></th>
+        <th class="px-4 py-2"><%= t("activerecord.attributes.pessoa.cidade") %></th>
+        <th class="px-4 py-2"><%= t("activerecord.attributes.pessoa.estado") %></th>
+        <th class="px-4 py-2"><%= t("activerecord.attributes.pessoa.created_at") %></th>
+        <th class="px-4 py-2"><%= t("activerecord.attributes.pessoa.updated_at") %></th>
+        <th class="px-4 py-2"><%= t("activerecord.attributes.pessoa.actions") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @pessoas.each do |pessoa| %>
+        <tr>
+          <td class="border px-4 py-2 text-center"><%= pessoa.nome %></td>
+          <td class="border px-4 py-2 text-center"><%= pessoa.rua %></td>
+          <td class="border px-4 py-2 text-center"><%= pessoa.numero %></td>
+          <td class="border px-4 py-2 text-center"><%= pessoa.bairro %></td>
+          <td class="border px-4 py-2 text-center"><%= pessoa.cidade %></td>
+          <td class="border px-4 py-2 text-center"><%= pessoa.estado %></td>
+          <td class="border px-4 py-2 text-center"><%= pessoa.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+          <td class="border px-4 py-2 text-center"><%= pessoa.updated_at.strftime("%d/%m/%Y %H:%M") %></td>
+          <td class="border px-4 py-2 text-center">
+            <%= link_to t("pessoas.form.show"), pessoa, class: "rounded-lg py-1 px-3 bg-gray-100 inline-block font-medium" %>
+            <%= link_to t("pessoas.form.edit"), edit_pessoa_path(pessoa), class: "rounded-lg py-1 px-3 bg-gray-100 inline-block font-medium" %>
+            <%= link_to t("pessoas.form.destroy"), pessoa_path(pessoa), method: :delete, class: "rounded-lg py-1 px-3 bg-red-600 text-white inline-block font-medium" %>
+            <%# criar form de delete %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

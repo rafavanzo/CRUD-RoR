@@ -1,37 +1,37 @@
 <%= simple_form_for(@pessoa, html: { class: 'contents', novalidate: true }) do |f| %>
   <div class="my-5">
-    <%= f.input :nome, label: 'Nome', error: false, input_html: { class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" } %>
+    <%= f.input :nome, label: t('.nome'), error: false, input_html: { class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" } %>
     <%= f.error :nome, class: 'text-red-500'%>
   </div>
 
   <div class="my-5">
-    <%= f.input :rua, label: 'Rua', error: false, input_html: { class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" } %>
+    <%= f.input :rua, label: t('.rua'), error: false, input_html: { class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" } %>
     <%= f.error :rua, class: 'text-red-500'%>
   </div>
 
   <div class="my-5">
-    <%= f.input :numero, label: 'Número', error: false, input_html: { class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" } %>
+    <%= f.input :numero, label: t('.numero'), error: false, input_html: { class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" } %>
     <%= f.error :numero, class: 'text-red-500'%>
   </div>
 
   <div class="my-5">
-    <%= f.input :bairro, label: 'Bairro', error: false, input_html: { class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" } %>
+    <%= f.input :bairro, label: t('.bairro'), error: false, input_html: { class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" } %>
     <%= f.error :bairro, class: 'text-red-500'%>
   </div>
 
   <div class="my-5">
-    <%= f.input :cidade, label: 'Cidade', error: false, input_html: { class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" } %>
+    <%= f.input :cidade, label: t('.cidade'), error: false, input_html: { class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" } %>
     <%= f.error :cidade, class: 'text-red-500'%>
   </div>
 
   <div class="my-5">
-    <%= f.input :estado, label: 'Estado', error: false, input_html: { class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", maxlength: 2 } %>
+    <%= f.input :estado, label: t('.estado'), error: false, input_html: { class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", maxlength: 2 } %>
     <%= f.error :estado, class: 'text-red-500'%>
   </div>
 
   <div class="inline">
-    <%= f.button :submit, 'Salvar', class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    <%= f.button :submit, t('.submit'), class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
   </div>
 
-  <%= link_to 'Cancelar', pessoas_path, class: "rounded-lg py-3 px-5 bg-gray-200 text-gray-700 inline-block font-medium cursor-pointer" %>
+  <%= link_to t('.cancel'), pessoas_path, class: "rounded-lg py-3 px-5 bg-gray-200 text-gray-700 inline-block font-medium cursor-pointer" %>
 <% end %>

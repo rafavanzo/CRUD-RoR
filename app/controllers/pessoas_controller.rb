@@ -1,12 +1,12 @@
 class PessoasController < ApplicationController
   before_action :set_pessoa, only: %i[ show edit update destroy ]
 
-  # GET /pessoas or /pessoas.json
+  # GET /pessoas ou /pessoas.json
   def index
     @pessoas = Pessoa.all
   end
 
-  # GET /pessoas/1 or /pessoas/1.json
+  # GET /pessoas/1 ou /pessoas/1.json
   def show
   end
 
@@ -19,13 +19,13 @@ class PessoasController < ApplicationController
   def edit
   end
 
-  # POST /pessoas or /pessoas.json
+  # POST /pessoas ou /pessoas.json
   def create
     @pessoa = Pessoa.new(pessoa_params)
 
     respond_to do |format|
       if @pessoa.save
-        format.html { redirect_to pessoa_url(@pessoa), notice: "Pessoa was successfully created." }
+        format.html { redirect_to pessoa_url(@pessoa), notice: I18n.t('pessoas.messages.success.create') }
         format.json { render :show, status: :created, location: @pessoa }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -34,11 +34,11 @@ class PessoasController < ApplicationController
     end
   end
 
-  # PATCH/PUT /pessoas/1 or /pessoas/1.json
+  # PATCH/PUT /pessoas/1 ou /pessoas/1.json
   def update
     respond_to do |format|
       if @pessoa.update(pessoa_params)
-        format.html { redirect_to pessoa_url(@pessoa), notice: "Pessoa was successfully updated." }
+        format.html { redirect_to pessoa_url(@pessoa), notice: I18n.t('pessoas.messages.success.update') }
         format.json { render :show, status: :ok, location: @pessoa }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -47,24 +47,26 @@ class PessoasController < ApplicationController
     end
   end
 
-  # DELETE /pessoas/1 or /pessoas/1.json
+  # DELETE /pessoas/1 ou /pessoas/1.json
   def destroy
     @pessoa.destroy!
 
     respond_to do |format|
-      format.html { redirect_to pessoas_url, notice: "Pessoa was successfully destroyed." }
+      format.html { redirect_to pessoas_url, notice: I18n.t('pessoas.messages.success.destroy') }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_pessoa
-      @pessoa = Pessoa.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def pessoa_params
-      params.require(:pessoa).permit(:nome, :rua, :numero, :bairro, :cidade, :estado)
-    end
+  # Use callbacks para compartilhar configurações ou restrições comuns entre ações.
+  def set_pessoa
+    @pessoa = Pessoa.find(params[:id])
+  end
+
+  # Só permitir uma lista de parâmetros confiáveis por meio de strong parameters.
+  def pessoa_params
+    params.require(:pessoa).permit(:nome, :rua, :numero, :bairro, :cidade, :estado)
+  end
+
 end
