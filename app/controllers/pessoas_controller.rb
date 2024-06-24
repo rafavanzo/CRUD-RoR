@@ -57,6 +57,10 @@ class PessoasController < ApplicationController
     end
   end
 
+  def confirm_delete
+    @pessoa = Pessoa.find(params[:id])
+  end
+
   private
 
   # Use callbacks para compartilhar configurações ou restrições comuns entre ações.

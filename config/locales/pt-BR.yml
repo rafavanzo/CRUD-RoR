@@ -1,4 +1,4 @@
-pt:
+pt-BR:
   activerecord:
     attributes:
       pessoa:
@@ -23,6 +23,8 @@ pt:
     errors:
       messages:
         blank: "não pode ficar em branco"
+        too_short: "deve ter pelo menos %{count} caracteres"
+        and: "e" # Adiciona ou personaliza esta linha conforme necessário
       models:
         pessoa:
           attributes:
@@ -70,3 +72,10 @@ pt:
       created_at: "Criado"
       updated_at: "Atualizado"
       actions: "Ações"
+      confirm_delete_title: "Confirmar Exclusão"
+      confirm_delete_message: "Tem certeza de que deseja excluir esta pessoa?"
+    confirm_delete:
+      title: "Confirmar exclusão da pessoa: %{nome}"
+      description: "Por favor, confirme se deseja excluir esta pessoa."
+      cancel: "Cancelar"
+      submit: "Excluir"

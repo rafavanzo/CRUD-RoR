@@ -38,8 +38,7 @@
           <td class="border px-4 py-2 text-center">
             <%= link_to t("pessoas.form.show"), pessoa, class: "rounded-lg py-1 px-3 bg-gray-100 inline-block font-medium" %>
             <%= link_to t("pessoas.form.edit"), edit_pessoa_path(pessoa), class: "rounded-lg py-1 px-3 bg-gray-100 inline-block font-medium" %>
-            <%= link_to t("pessoas.form.destroy"), pessoa_path(pessoa), method: :delete, class: "rounded-lg py-1 px-3 bg-red-600 text-white inline-block font-medium" %>
-            <%# criar form de delete %>
+            <%= link_to t("pessoas.form.destroy"), confirm_delete_pessoa_path(pessoa), class: "rounded-lg py-1 px-3 bg-red-600 text-white inline-block font-medium", data: { confirm: t("pessoas.form.confirm_delete") } %>
           </td>
         </tr>
       <% end %>
