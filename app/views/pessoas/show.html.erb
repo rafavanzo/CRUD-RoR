@@ -10,8 +10,6 @@
 
     <%= link_to t('pessoas.form.edit'), edit_pessoa_path(@pessoa), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to t('pessoas.form.back'), pessoas_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to t('pessoas.form.destroy'), @pessoa, method: :delete, data: { confirm: t('pessoas.form.confirm_delete') }, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
-    </div>
+    <%= link_to t("pessoas.form.destroy"), confirm_delete_pessoa_path(@pessoa), class: "ml-2 rounded-lg py-3 px-5 bg-red-600 text-white inline-block font-medium" , data: { confirm: t("pessoas.form.confirm_delete") } %>
   </div>
 </div>
